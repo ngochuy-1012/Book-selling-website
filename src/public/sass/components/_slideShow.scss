@@ -1,0 +1,8 @@
+.carousel-item {
+    img {
+        height: 450px;
+        @include mobile {
+            height: 200px;
+        }
+    }
+}

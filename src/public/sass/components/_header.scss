@@ -1,0 +1,211 @@
+.header {
+    background-color: $main-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    height: $header-height;
+    transition: height 0.3s ease;
+
+    @include tablet {
+        height: $header-tablet-height;
+        box-shadow: $box-shadow;
+    }
+
+    @include mobile {
+        height: $header-mobile-height;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    &.shrink {
+        height: $header-shrink-height;
+        box-shadow: $box-shadow;
+        z-index: 100;
+
+        @include mobile {
+            height: $header-mobile-height;
+        }
+    }
+
+    &__logo {
+        @include flex(center, center);
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+
+        img {
+            height: 28px;
+        }
+    }
+
+    &__menu {
+        @include flex(center, space-between);
+        height: 100%;
+        font-size: 1.5rem;
+
+        &__item ~ &__item {
+            margin-left: 39px;
+
+            @include tablet {
+                margin-left: 20px;
+            }
+
+            @include mobile {
+                margin-left: 10px;
+            }
+        }
+
+        &__item.active {
+            font-weight: 600;
+            color: $main-color;
+        }
+
+        &__item:hover {
+            color: $main-color;
+            a {
+                text-decoration: none;
+            }
+        }
+        .searchBox {
+            position: absolute;
+            top: -5%;
+            left: 80%;
+            transform:  translate(-50%,50%);
+            // height: 40px;
+            border-radius: 40px;
+            padding: 10px;
+            @include tablet {
+                top: -35%;
+                left: 75%;
+            }
+            @include mobile {
+                top: -94%;
+                left: 78%;
+            }
+        
+        }
+        .searchBox:hover {
+            background: #e9ecef;
+        }
+        .searchBox:hover > .searchInput {
+            width: 240px;
+            padding: 0 6px;
+            @include tablet {
+                width: 120px;
+            }
+            @include mobile {
+                width: 30px;
+            }
+        }
+        
+        .searchBox:hover > .searchButton {
+          background: white;
+          color : #2f3640;
+        }
+        
+        .searchButton {
+            color: black;
+            float: right;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+            @include mobile {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        
+        .searchInput {
+            border:none;
+            background: #e9ecef;
+            outline:none;
+            float:left;
+            padding: 0;
+            color: black;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0px;
+        
+        }
+        
+        &__left,
+        &__right {
+            @include flex(center, center);
+            height: 100%;
+        }
+
+        &__right {
+            font-size: 2.25rem;
+            
+            &__item {
+                @include flex(center, center);
+
+                @include tablet {
+                    margin-left: 10px;
+                }
+            }
+
+            @include mobile {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__left {
+            &__close {
+                display: none;
+            }
+
+            @include tablet {
+                flex-direction: column;
+                background-color: $main-bg;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100vh;
+                justify-content: flex-start;
+                padding-top: 30px;
+                transform: translateX(-100%);
+                transition: transform 0.5s ease;
+
+                &.active {
+                    transform: translateX(0);
+                }
+
+                &__item ~ &__item {
+                    margin-left: unset;
+                    margin-top: 20px;
+                }
+                
+                &__close {
+                    display: block;
+                    position: absolute;
+                    left: 20px;
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        &__mobile-toggle {
+            display: none;
+
+            @include tablet {
+                display: block;
+                font-size: 2.5rem;
+            }
+        }
+    }
+}

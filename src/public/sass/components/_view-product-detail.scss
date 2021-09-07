@@ -1,0 +1,135 @@
+.view-product-detail {
+    @include flex(flex-start, flex-start);
+
+    &__images {
+        @include flex(flex-start, flex-start);
+
+        width: 60%;
+        flex-wrap: wrap;
+
+        &__list {
+            width: 20%;
+
+            &__item {
+                margin-bottom: 20px;
+            }
+        }
+
+        &__main {
+            flex-grow: 1;
+            position: relative;
+            padding-top:100%;
+
+            img {
+                position: absolute;
+                top: 0;
+                left:50%;
+                height: 100%;
+                transform: translate(-50%);
+                width: 80%;
+                height: 80%;
+            }
+        }
+    }
+
+    &__info {
+
+        flex-grow: 1;
+        position: relative;
+        top: $header-shrink-height;
+        padding-top: 2rem;
+
+        &__title {
+            // font-size: 2.5em;
+            font-weight: normal;
+        }
+
+        &__item {
+
+            position: absolute;
+            margin-top: 3rem;
+
+            &__price {
+                color: $main-color;
+                font-size: 2rem;
+                font-weight: 600;
+            }
+
+            &__author {
+                font-size:1.5rem;
+            }
+
+            &__publisher {
+                font-size:1.5rem;
+            }
+
+            &__numOfPages {
+                font-size:1.5rem;
+            }
+
+            &__quantity {
+                
+                &__title {
+                    font-size:1.5rem;
+                }
+
+                &__content {
+                    margin-top: 5%;
+                    @include flex(flex-start,flex-start);
+
+                    &__btn {
+                        @include flex(center, center);
+                        width:30px;
+                        height:30px;
+                        border: 2px solid $txt-second-color;
+                        font-size:1.5rem;
+                        cursor: pointer;
+                    }
+
+                    &__input {
+                        @include flex(center, center);
+                        width:90px;
+                        height:30px;
+                        border-top: 2px solid $txt-second-color;
+                        border-bottom: 2px solid $txt-second-color;
+                        font-size:1.5rem;
+                    }
+
+                }
+            }
+
+            &__buy {
+                margin-top:10%;
+
+                button {
+                    margin-right: 1rem;
+                    margin-bottom: 1rem;
+                    transition: transform .3s;
+                }
+
+                button:hover {
+                    transform: scale(1.1); 
+                }
+            }
+        }
+    }
+}
+.view-product-detail-description {
+    width: 100%;
+    padding: 2rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+
+    &__title {
+        font-size: 1.5em;
+        font-weight: 600;
+        margin: 2rem 0;
+
+    }
+
+    &__content {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        text-align: justify;
+    }
+}
